@@ -13,7 +13,7 @@ if "messages" not in st.session_state:
         {"role": "assistant", "content": "Hi, I am jingaxAI! Aastik's AI assistant. You can ask me anything about Aastik"},
     ]
     
-    st.session_state.client = openai.OpenAI(api_key = st.secrets['key']['openai'])
+    st.session_state.client = openai.OpenAI(api_key = st.secrets['api']['openai'])
 
 
 
