@@ -2,6 +2,8 @@ import streamlit as st
 import openai
 
 st.write('<style>div.block-container{padding-top:2rem;}</style>', unsafe_allow_html=True)
+st.title('Jingax-AI')
+# st.subheader('Aastik's personal AI assistent')
 q_count =10
 # Initialize chat history
 if "messages" not in st.session_state:
