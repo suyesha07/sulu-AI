@@ -1,17 +1,18 @@
 import streamlit as st
 import openai
-st.set_page_config(page_title="jingax-AI",initial_sidebar_state="collapsed")
-st.write('<style>div.block-container{padding-top:2rem;}</style>', unsafe_allow_html=True)
-
-st.subheader('')
-st.latex(r'''
-    \textsf{\Huge \textbf {jingax-AI}}
-         ''')
-# st.title("jingax-AI")
-html_string = '''
-  <center style="color:#bfbfbf;"> by aastik </center>
- '''
-st.markdown(html_string, unsafe_allow_html=True)
+if 'embedded' in st.query_params or 'embed' in st.query_params:
+    st.set_page_config(page_title="jingax-AI",initial_sidebar_state="collapsed")
+    st.write('<style>div.block-container{padding-top:2rem;}</style>', unsafe_allow_html=True)
+    
+    st.subheader('')
+    st.latex(r'''
+        \textsf{\Huge \textbf {jingax-AI}}
+             ''')
+    # st.title("jingax-AI")
+    html_string = '''
+      <center style="color:#bfbfbf;"> by aastik </center>
+     '''
+    st.markdown(html_string, unsafe_allow_html=True)
 q_count =10
 # Initialize chat history
 if "messages" not in st.session_state:
