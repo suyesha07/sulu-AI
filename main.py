@@ -1,5 +1,6 @@
 import streamlit as st
 import openai
+st.write(st.query_params)
 if 'embedded' not in st.query_params and 'embed' not in st.query_params:
     st.set_page_config(page_title="jingax-AI",initial_sidebar_state="collapsed")
     st.write('<style>div.block-container{padding-top:2rem;}</style>', unsafe_allow_html=True)
