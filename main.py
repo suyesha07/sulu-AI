@@ -1,6 +1,6 @@
 import streamlit as st
 import openai
-st.set_page_config(page_title="jingax-AI",initial_sidebar_state="collapsed")
+st.set_page_config(page_title="jingax-AI",initial_sidebar_state="collapsed",layout="wide")
 # st.write(st.query_params)
 if st.query_params != {}:
     
