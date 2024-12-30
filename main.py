@@ -29,7 +29,7 @@ for message in st.session_state.messages[2:]:
 
 def chat_with_bot(user_message):
     # Append user query to the message history
-    st.session_state.messages.append({"role": "user", "content": user_message})
+    # st.session_state.messages.append({"role": "user", "content": user_message})
     
     # Call the OpenAI API
     response = st.session_state.client.chat.completions.create(
@@ -43,7 +43,7 @@ def chat_with_bot(user_message):
     assistant_reply = response.choices[0].message.content
     
     # Add the assistant's reply to the message history
-    st.session_state.messages.append({"role": "assistant", "content": assistant_reply})
+    # st.session_state.messages.append({"role": "assistant", "content": assistant_reply})
     st.session_state.use_count += 1
     return assistant_reply
 
@@ -64,8 +64,8 @@ if prompt := st.chat_input("Ask me anything about Aastik",disabled=st.session_st
     else:
         response = f"You get to ask only {q_count} questions!"
     # Display assistant response in chat message container
-    # with st.chat_message("assistant"):
-        # st.markdown(response)
+    with st.chat_message("assistant"):
+        st.markdown(response)
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})
 st.write(st.session_state.messages)
