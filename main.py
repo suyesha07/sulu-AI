@@ -2,14 +2,11 @@ import streamlit as st
 import openai
 st.set_page_config(page_title="jingax-AI",initial_sidebar_state="collapsed")
 st.write('<style>div.block-container{padding-top:2rem;}</style>', unsafe_allow_html=True)
-html_string = '''
-<center><h1>
-jingax-AI<sub style="color:red;">by aastik</sub>
-</h1>
-</center>
- '''
+
 st.subheader('')
-st.markdown(html_string, unsafe_allow_html=True)
+st.latex(r'''
+    \textsf{\Huge \textbf {jingax-AI}} \textsf{ by aastik}
+         ''')
 # st.subheader('Aastik's personal AI assistent')
 q_count =10
 # Initialize chat history
