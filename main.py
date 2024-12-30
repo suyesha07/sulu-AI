@@ -4,10 +4,10 @@ st.set_page_config(page_title="jingax-AI",initial_sidebar_state="collapsed")
 st.write('<style>div.block-container{padding-top:2rem;}</style>', unsafe_allow_html=True)
 
 st.subheader('')
-# st.latex(r'''
-#     \textsf{\Huge \textbf {jingax-AI}} \textsf{ by aastik}
-#          ''')
-st.title("jingax-AI")
+st.latex(r'''
+    \textsf{\Huge \textbf {jingax-AI}}
+         ''')
+# st.title("jingax-AI")
 html_string = '''
   <center style="color:#bfbfbf;"> by aastik </center>
  '''
