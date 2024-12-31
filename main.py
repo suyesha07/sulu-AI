@@ -2,6 +2,7 @@ import streamlit as st
 import openai
 import random
 from datetime import datetime
+from streamlit.logger import get_logger
 
 st.set_page_config(page_title="jingax-AI",initial_sidebar_state="collapsed",layout="wide")
 # st.write(st.query_params)
@@ -21,8 +22,9 @@ if st.query_params != {}:
 q_count =10
 # Initialize chat history
 if "messages" not in st.session_state:
+    st.session_state.logger = get_logger(__name__)
     st.session_state.curr_id = f"{random.randint(10000, 99999)}-{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
-    print(f"New INIT : {st.session_state.curr_id}")
+    st.session_state.logger.info(f"New INIT : {st.session_state.curr_id}")
     about_me = f = open("about_me.txt", "r").read()
     st.session_state.use_count = 0
     st.session_state.messages = [
@@ -74,7 +76,7 @@ if prompt := st.chat_input("Ask me anything about Aastik",disabled=st.session_st
     st.chat_message("user").markdown(prompt)
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
-    print(f"{st.session_state.curr_id}::user:: {prompt}")
+    st.session_state.logger.info(f"{st.session_state.curr_id}::user:: {prompt}")
     if st.session_state.use_count <q_count :
         response = chat_with_bot(prompt)
     else:
@@ -84,5 +86,5 @@ if prompt := st.chat_input("Ask me anything about Aastik",disabled=st.session_st
         st.markdown(response)
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})
-    print(f"{st.session_state.curr_id}::jinga-ai:: {response}")
+    st.session_state.logger.info(f"{st.session_state.curr_id}::jinga-ai:: {response}")
 # st.write(st.session_state.messages)
