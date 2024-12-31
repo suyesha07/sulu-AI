@@ -23,7 +23,7 @@ query_params = st.query_params
 st.write(query_params)
 is_in_iframe = query_params.get("iframe", ["false"])[0] == "true"
 
-if not is_in_iframe :
+if False :
     
     st.write('<style>div.block-container{padding-top:2rem;}</style>', unsafe_allow_html=True)
     
