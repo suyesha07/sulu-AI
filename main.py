@@ -6,7 +6,7 @@ from streamlit.logger import get_logger
 
 st.set_page_config(page_title="jingax-AI",initial_sidebar_state="collapsed",layout="wide")
 # st.write(st.query_params)
-if st.query_params != {}:
+if 'embs' not in st.query_params:
     
     st.write('<style>div.block-container{padding-top:2rem;}</style>', unsafe_allow_html=True)
     
