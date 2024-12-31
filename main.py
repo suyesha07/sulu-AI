@@ -25,7 +25,7 @@ is_in_iframe = query_params.get("iframe", ["false"])[0] == "true"
 
 if False :
     
-    st.write('<style>div.block-container{padding-top:2rem;}</style>', unsafe_allow_html=True)
+    
     
     st.subheader('')
     st.latex(r'''
@@ -36,6 +36,8 @@ if False :
       <center style="color:#bfbfbf;"> by aastik </center>
      '''
     st.markdown(html_string, unsafe_allow_html=True)
+else:
+    st.write('<style>div.block-container{padding-top:2rem;}</style>', unsafe_allow_html=True)
 q_count =10
 # Initialize chat history
 if "messages" not in st.session_state:
