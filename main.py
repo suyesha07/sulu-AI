@@ -3,10 +3,26 @@ import openai
 import random
 from datetime import datetime
 from streamlit.logger import get_logger
+from streamlit.components.v1 import html
 
 st.set_page_config(page_title="jingax-AI",initial_sidebar_state="collapsed",layout="wide")
 # st.write(st.query_params)
-if st.experimental_js_eval("window.self == window.top") :
+iframe_check_code = """
+<script>
+    const isInIframe = window.self !== window.top;
+    const queryParams = new URLSearchParams(window.location.search);
+    queryParams.set('iframe', isInIframe);
+    const newUrl = `${window.location.pathname}?${queryParams.toString()}`;
+    window.history.replaceState(null, '', newUrl);  // Modify the URL
+</script>
+"""
+
+# Embed JavaScript
+html(iframe_check_code, height=0)
+query_params = st.experimental_get_query_params()
+is_in_iframe = query_params.get("iframe", ["false"])[0] == "true"
+
+if not is_in_iframe :
     
     st.write('<style>div.block-container{padding-top:2rem;}</style>', unsafe_allow_html=True)
     
