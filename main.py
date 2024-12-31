@@ -37,7 +37,7 @@ if False :
      '''
     st.markdown(html_string, unsafe_allow_html=True)
 else:
-    st.write('<style>div.block-container{padding-top:2rem;}</style>', unsafe_allow_html=True)
+    st.write('<style>div.block-container{padding-top:-2rem;}</style>', unsafe_allow_html=True)
 q_count =10
 # Initialize chat history
 if "messages" not in st.session_state:
