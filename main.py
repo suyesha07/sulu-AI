@@ -19,7 +19,7 @@ iframe_check_code = """
 
 # Embed JavaScript
 html(iframe_check_code, height=0)
-query_params = st.query_params()
+query_params = st.query_params
 is_in_iframe = query_params.get("iframe", ["false"])[0] == "true"
 
 if not is_in_iframe :
