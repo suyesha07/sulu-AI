@@ -5,7 +5,7 @@ from datetime import datetime
 from streamlit.logger import get_logger
 from streamlit.components.v1 import html
 
-st.set_page_config(page_title="jingax-AI",initial_sidebar_state="collapsed",layout="wide")
+st.set_page_config(page_title="sulu-AI",initial_sidebar_state="collapsed",layout="wide")
 # st.write(st.query_params)
 iframe_check_code = """
 <script>
@@ -48,9 +48,9 @@ if "messages" not in st.session_state:
     about_me = f = open("about_me.txt", "r").read()
     st.session_state.use_count = 0
     st.session_state.messages = [
-        {"role": "system", "content": "You are a helpful assistant that knows detailed information about Aastik. Try to be as brief as possible in your responses, be quirky and fun"},
+        {"role": "system", "content": "You are a helpful assistant that knows detailed information about Suyesha. Try to be as brief as possible in your responses, be quirky and fun"},
         {"role": "system", "content": about_me},
-        {"role": "assistant", "content": "Hi, I am jingaxAI! Aastik's AI assistant. You can ask me anything about Aastik"},
+        {"role": "assistant", "content": "Hi, I am sulu-AI! Suyesha's AI assistant. You can ask me anything about Suyesha"},
     ]
     
     st.session_state.client = openai.OpenAI(api_key = st.secrets['api']['openai'])
@@ -91,7 +91,7 @@ def chat_with_bot(user_message):
 
 
 
-if prompt := st.chat_input("Ask me anything about Aastik",disabled=st.session_state.use_count>q_count):
+if prompt := st.chat_input("Ask me anything about Suyesha",disabled=st.session_state.use_count>q_count):
     # Display user message in chat message container
     st.chat_message("user").markdown(prompt)
     # Add user message to chat history
